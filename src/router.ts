@@ -1,9 +1,8 @@
-import { Request, Response, Router } from "express";
+import { Router } from "express";
+import { CreateUserController } from "./controllers/user/CreateUserController";
 
 const router = Router();
 
-router.post('/users', (_req: Request, res: Response) => {
-    res.json({ message: 'User created successfully' });
-})
+router.post('/users', new CreateUserController().handle);
 
 export { router };
